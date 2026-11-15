@@ -40,8 +40,8 @@ With the root on NVMe, the ramdisk step goes away, and a boot is ~17 MB of USB t
 
 | Milestone | Work | Exit condition |
 | --- | --- | --- |
-| I0 — Recovery proven before any write | Keep the NVMe namespace 2–7 backup (syscfg is irreplaceable) and the IM4M off-device; document and try the way back to iOS (DFU restore in Finder) | Written restore procedure; backups have checksums and are stored in two places |
-| I1 — Install decision | Choose between: (a) all of namespace 1 for AetherOS, which erases iOS and follows Cascadia's proven N1–N3 flow; or (b) side by side with iOS, which is research (an APFS-contained extent + dm-linear, see Cascadia `research/nvme-plan.md`) | User decision recorded |
+| I0 — Recovery proven before any write | Keep the NVMe namespace 2–7 backup (syscfg is irreplaceable) and the IM4M off-device; document and try the way back to iOS (DFU restore in Finder) | Written restore procedure; backups have checksums and are stored in two places (`tools/nvme-backup.sh`) |
+| I1 — Install decision | Choose between: (a) all of namespace 1 for AetherOS, which erases iOS and follows Cascadia's proven N1–N3 flow; or (b) side by side with iOS, which is research (an APFS-contained extent + dm-linear, see Cascadia `research/nvme-plan.md`) | **Done 2026-11-15: (a), iOS erased.** Procedure in [INSTALL_PROCEDURE.md](INSTALL_PROCEDURE.md) |
 | I2 — AetherOS root on NVMe | Our own rootfs (from B4) installed through the write gate, booted from `LABEL=…-root` before the RAM and NFS fallbacks | Survives several reboots, `apk add` and reboot, and a power loss |
 | I3 — One-step boot from the Mac | One command that waits for DFU, runs usbliter8 → iBSS → DT → trust cache → kernel, with no ramdisk; clear errors and a retry loop | A cold boot needs nothing but "DFU, plug in, wait" |
 | I4 — Mac-less bootstrapper | A small Linux board (for example a Raspberry Pi Zero 2 W or similar with USB host) plus usbliter8, running the same boot script on power or on a button press; boot images in its storage | The phone boots AetherOS from the board, with no computer involved |
