@@ -1,4 +1,4 @@
-/* SPDX-License-Identifier: MIT
+/* SPDX-License-Identifier: GPL-2.0-only
  *
  * AetherOS-owned, RAM-only handoff probe for the iPhone 11 / N104AP.
  *

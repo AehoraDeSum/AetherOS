@@ -29,3 +29,7 @@ Remove generated files with `make clean`.
 The user has authorized usbliter8 as a tethered, lab-only bootstrap candidate. The m1n1-to-Linux entry contract is now documented, and a RAM-only AetherOS framebuffer probe is prepared as a named IMG4. The next device gate is to boot that probe through the known lab path and observe its marker. This would prove only the handoff payload, not remove iBoot/iBSS or m1n1. The long-term independent boot path remains a separate feasibility gate; document a no-go early if device constraints prevent it. See [BOOTLOADER_RESEARCH.md](BOOTLOADER_RESEARCH.md) and [BOOT_HANDOFF_CONTRACT.md](docs/BOOT_HANDOFF_CONTRACT.md).
 
 Until that gate is resolved, keep device experiments read-only and RAM-only. Do not write to internal storage or modify the existing iOS installation.
+
+## License
+
+GPL-2.0 (see [LICENSE](LICENSE)), the same as Project Cascadia and the Linux kernel. Third-party code keeps its own license; Apple firmware and IPSW-derived files are never part of this repository.
